@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Post@index');
+Route::get('/setsession', 'Post@setsession');
+Route::get('/getsession', 'Post@getsession');
+Route::get('/deletesession', 'Post@deletesession');
 Route::get('create', 'Post@create');
 Route::get('edit/{id}', 'Post@edit');
 Route::post('update', 'Post@update');

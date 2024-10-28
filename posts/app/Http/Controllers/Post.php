@@ -48,6 +48,16 @@ class Post extends Controller
 		
 		$posts=Posts::where('id',$req->id)->delete();
 		return redirect('/')->with('success','Deleted successfully');
-	}	
+	}
+	
+	function setsession(){
+		session()->put('username','PETER');
+	}
+	function getsession(){
+		echo session()->get('username');
+	}
+	function deletesession(){
+		 session()->forget('username');
+	}
 	
 }
