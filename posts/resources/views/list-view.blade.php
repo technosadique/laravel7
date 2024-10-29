@@ -13,9 +13,17 @@
 				<div class="card-header ">			
                         <h4>
                             Listing
-                            <a href="create" class="btn btn-primary float-right">
+                            <a href="create" class="btn btn-primary float-right ml-2">
                                 Add
-                            </a>							
+                            </a>	
+
+							<a href="generate_pdf" class="btn btn-secondary float-right ml-2" target="_blank">
+                                Export PDF
+                            </a>
+							
+							<a href="download_csv" class="btn btn-secondary float-right" target="_blank">
+                                Export CSV
+                            </a>
                         </h4>
                     </div>
 				<p class="text-center text-success">			  
