@@ -1,0 +1,110 @@
+#how to install laravel7
+htdocs>composer create-project laravel/laravel <projectname>
+#how to config db
+open .env file and configure db variables
+#to create controller
+php artisan make:controller <controllername>
+
+#to create model 
+php artisan make:model <tablename> -a
+#how to remove public from url 
+change server.php to index.php 
+move .htaccess to root folder (move from public folder to project folder)
+#remove db error while inserting new record in laravel
+open employees from app/employees file 
+put "public $timestamps=false;"
+
+#how to disable csrf in form
+go to app->http->middleware->VerifyCsrfToken  and write  protected $except = ['*'];
+
+
+#to create seeder
+php artisan make:seeder <seedername>
+#to create migration 
+php artisan make:migration blog
+#how to add new column in table using migration 
+create migration file using "php artisan make:migration addemail"
+public function up()
+{
+	Schema::table('employees', function (Blueprint $table) {
+		$table->string('email');            
+	});
+}
+
+/**
+ * Reverse the migrations.
+ *
+ * @return void
+ */
+public function down()
+{
+	Schema::table('employees', function (Blueprint $table) {
+		$table->dropColumn('email');           
+	});        
+}
+	
+#how to rollback specific column
+php artisan migrate:rollback
+
+#how to run seeder 
+php artisan db:seed --class=EmployeesSeeder
+php artisan db:seed(if class is defined in DatabaseSeeder)
+
+#two important file that you need to consider while working with laravel 
+web.php (routes)
+employee controller(app/https/controllers)
+employees model (app/employees)
+
+#how to make constant and use globally 
+we can define constant in config/global.php or .env file 
+in controller type echo env('MYVAR');
+#what is tinker?how to use it
+Tinker allows you to interact with a database without creating the routes and u can do crud query
+modify your model with 
+protected $fillable = ['name', 'price'];
+
+go to command line and type below command to insert new record
+php artisan tinker
+$post=App\mobiles::create(['name'=>'nokia','price'=>'8000']); // insert new record 
+$post=App\mobiles::find(3)->update(['name'=>'samsung','price'=>'9000']); // update
+$post=App\mobiles::find(7); // fetch single record
+$post=App\mobiles::find(7)->delete(); // delete record
+
+#how to set,get,destroy session in laravel
+$r->session()->put('name','raj');  // session set
+$r->session()->get('name');  // session get
+$r->session()->forget('name');  // session destroy
+#how to implement softdelete,restore,forcedelete
+https://www.itsolutionstuff.com/post/how-to-use-soft-delete-in-laravel-5example.html
+add "deleted_at" varchar 100 NULL field in table 
+open MODEL and write below code
+use Illuminate\Database\Eloquent\SoftDeletes;
+use SoftDeletes;
+protected $dates = ['deleted_at'];
+open CONTROLLER and write below code in index function
+$employees =employees::orderBy('id','DESC')->get();
+return view('employee-listing',['employees'=>$employees]);
+and in "remove" function write below code
+employees::where('id',$id)->delete();	
+return redirect('/')->with('success','Deleted successfully');
+#what is laravel auth
+https://www.youtube.com/watch?v=Od1RSXGLnEI
+https://stackoverflow.com/questions/58111841/auth-pages-not-getting-css-in-laravel
+laravel auth is login and registration system 
+composer create-project laravel/laravel auth1 
+composer require laravel/ui
+composer update (if needed)
+npm install && npm run dev
+include cdn link for BS4 css and js in app.blade.php file 
+
+#what is laravel spark
+Laravel Spark is designed to help developers efficiently build and manage SaaS applications without reinventing the wheel for common functionalities.
+
+#how to run specific migration file 
+php artisan migrate --path=/database/migrations/2024_12_05_082014_add_deleted_at_to_blogs.php
+
+
+
+
+
+
