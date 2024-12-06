@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 class Blog extends Controller
 {  
    
-   function index(){
-        $blogs = blogs::sortable()->paginate(50);		
+   function index(){	   
+        $blogs = blogs::sortable()->paginate(10);		
 		//$blogs = blogs::onlyTrashed()->sortable()->paginate(50);  // get all deleted records
 		//$blogs = blogs::withTrashed()->sortable()->paginate(50);  // get all deleted and non deleted records
 		return view('list-blog',['blogs'=>$blogs]);	

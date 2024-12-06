@@ -32,16 +32,15 @@
 				</span>
 				@enderror
 				 <input type="hidden" name="blog_id" placeholder="title" class="form-control" value="{{$blogs->id}}">
-				
 				</td>
 				 </tr>
 				 
+				 @if(isset($blogs->img) && !empty($blogs->img))
 				 <tr>
 				 <td>Image</td> <td><img src="{{ asset('public/uploads/'.$blogs->img)}}" width="100" height="100">				  
 				 </td>
 				 </tr>
-				 
-				 
+				 @endif
 				 
 				 <tr>
 				 <td>Upload Image</td> <td><input type="file" name="img" class="form-control">
