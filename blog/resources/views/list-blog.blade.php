@@ -16,6 +16,7 @@
                             <a href="{{ 'create' }}" class="btn btn-primary float-right ml-2">
                                 Add
                             </a>
+							
                         </h4>					
 			</div>
 			<p class="text-center text-success">@if($message = Session::get('success'))
@@ -34,7 +35,7 @@
 				 <tr>				 
 				 <td>{{ $row->id}}</td>
 				 <td>{{ $row->title}}</td>
-				 <td><a class="btn btn-primary" href="{{ 'edit/'.$row->id }}">Edit</a> <a class="btn btn-danger" href="{{ 'delete/'.$row->id }}" onclick="return confirm('r u sure to delete?')">Delete</a></td>
+				 <td><a class="btn btn-primary" href="{{ route('edit', [$row->id]) }}">Edit</a> <a class="btn btn-danger" href="{{ route('delete', [$row->id]) }}" onclick="return confirm('r u sure to delete?')">Delete</a></td>
 				 </tr>
 				@endforeach
 				@endif

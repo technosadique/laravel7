@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'blog@index');
 Route::get('create', 'blog@create');
-Route::get('edit/{id}', 'blog@edit');
-Route::get('delete/{id}', 'blog@delete');
+//Route::get('edit/{id}', 'blog@edit');
+Route::get('edit/{id}', 'blog@edit')->name('edit');
+Route::get('delete/{id}', 'blog@delete')->name('delete');
+//Route::get('delete/{id}', 'blog@delete');
 Route::post('update', 'blog@update');
 Route::post('store', 'blog@store');
