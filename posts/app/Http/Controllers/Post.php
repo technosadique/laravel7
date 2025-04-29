@@ -8,6 +8,11 @@ use Mpdf\Mpdf;
 use PHPExcel;
 use PHPExcel_IOFactory;
 
+/*
+use composer require mpdf/mpdf
+use composer require phpoffice/phpexcel
+*/
+
 class Post extends Controller
 {    
 	
