@@ -104,6 +104,14 @@ Laravel Spark is designed to help developers efficiently build and manage SaaS a
 php artisan migrate --path=/database/migrations/2024_12_05_082014_add_deleted_at_to_blogs.php
 
 
+#how to run unittest in laravel 
+- unit test - a unit test should test a single piece of functionality
+- feature test - a feature test should test a route
+php artisan make:test DatabaseTest --unit
+php artisan test
+https://www.youtube.com/watch?v=TWOAPBnqx8U
+https://www.youtube.com/watch?v=TWOAPBnqx8U
+https://www.youtube.com/watch?v=-BaFY1xe8Hg
 
 
 

@@ -103,7 +103,12 @@ Laravel Spark is designed to help developers efficiently build and manage SaaS a
 #how to run specific migration file 
 php artisan migrate --path=/database/migrations/2024_12_05_082014_add_deleted_at_to_blogs.php
 
-
+#how to run unittest in laravel 
+php artisan make:test DatabaseTest --unit
+php artisan test
+https://www.youtube.com/watch?v=TWOAPBnqx8U
+https://www.youtube.com/watch?v=TWOAPBnqx8U
+https://www.youtube.com/watch?v=-BaFY1xe8Hg
 
 
 
